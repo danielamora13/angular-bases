@@ -4,23 +4,22 @@ import { DbzService } from '../services/dbz.service';
 
 @Component({
   selector: 'app-dbz-main-page',
-  standalone: false,
   templateUrl: './main-page.component.html'
 })
+export class MainPageComponent  {
 
-export class MainPageComponent {
-
-  constructor( private dbzService: DbzService) {}
+  constructor( private dbzService: DbzService ) {}
 
   get characters(): Character[] {
-    return [... this.dbzService.characters];
+    return [...this.dbzService.characters];
   }
 
-  onDeleteCharacter(id: string): void {
-    this.dbzService.deleteCharacterById(id);
+  onDeleteCharacter( id: string ):void {
+    this.dbzService.deleteCharacterById( id );
   }
 
-  onNewCharacter( character: Character ): void {
+  onNewCharacter( character: Character ):void {
     this.dbzService.addCharacter( character );
   }
+
 }
